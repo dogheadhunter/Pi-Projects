@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / generated files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.env/
+
+# Node
+node_modules/
+
+# VS Code
+.vscode/
+
+# Devcontainer
+.devcontainer/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Build
+dist/
+build/

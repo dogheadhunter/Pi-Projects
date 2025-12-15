@@ -1,0 +1,12 @@
+{
+  "name": "node-blink",
+  "version": "0.1.0",
+  "description": "Simple GPIO blink example",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "onoff": "^7.0.0"
+  }
+}
