@@ -7,6 +7,6 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "onoff": "^7.0.0"
+    "onoff": "^6.0.0"
   }
 }
