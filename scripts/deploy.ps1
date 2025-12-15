@@ -11,8 +11,14 @@ if (-not $PiHost) {
     exit 2
 }
 
-$target = "${User}@${PiHost}:~/projects/$(Split-Path -Leaf $Path)"
+$projectName = Split-Path -Leaf $Path
+$remoteBase = "~/projects"
+# Ensure the parent directory exists on the Pi
+Write-Host "Ensuring remote directory exists: $remoteBase"
+ssh "${User}@${PiHost}" "mkdir -p $remoteBase"
+
+$target = "${User}@${PiHost}:$remoteBase"
 Write-Host "Deploying $Path -> $target"
 scp -r $Path $target
-ssh "${User}@${PiHost}" "echo 'Deployed to' ~/projects/$(Split-Path -Leaf $Path)"
+ssh "${User}@${PiHost}" "echo 'Deployed to' $remoteBase/$projectName"
 Write-Host "Done"
