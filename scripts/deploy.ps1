@@ -1,16 +1,18 @@
 param(
     [Parameter(Mandatory=$true)][string]$Path,
-    [string]$Host = $env:PI_HOST,
-    [string]$User = $env:PI_USER -or 'pi'
+    [string]$PiHost = $env:PI_HOST,
+    [string]$User = $env:PI_USER
 )
 
-if (-not $Host) {
-    Write-Error "Set PI_HOST env var or pass -Host"
+if (-not $User) { $User = 'pi' }
+
+if (-not $PiHost) {
+    Write-Error "Set PI_HOST env var or pass -PiHost"
     exit 2
 }
 
-$target = "$User@$Host:~/projects/$(Split-Path -Leaf $Path)"
+$target = "${User}@${PiHost}:~/projects/$(Split-Path -Leaf $Path)"
 Write-Host "Deploying $Path -> $target"
 scp -r $Path $target
-ssh "$User@$Host" "echo 'Deployed to' ~/projects/$(Split-Path -Leaf $Path)"
+ssh "${User}@${PiHost}" "echo 'Deployed to' ~/projects/$(Split-Path -Leaf $Path)"
 Write-Host "Done"

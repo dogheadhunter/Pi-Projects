@@ -17,7 +17,7 @@ python3 examples/python-led/blink.py
 ```bash
 scripts/deploy.sh examples/python-led
 # or on Windows PowerShell
-.\scripts\deploy.ps1 -Path examples/python-led
+.\scripts\deploy.ps1 -Path examples/python-led -PiHost <IP> -User <USER>
 ```
 
 What's included
