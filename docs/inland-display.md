@@ -90,6 +90,31 @@ If the script above breaks your system (black screen or boot loop), try this man
     3. Select **X11**
     4. Reboot and try installing the driver again.
 
+## Installer scripts (optional)
+
+If you prefer an automated helper, this repo includes two scripts you can run from your workstation that will SSH to the Pi and install the recommended driver (or apply the manual dtoverlay):
+
+- `scripts/install-inland-display.sh` (Linux / macOS)
+- `scripts/install-inland-display.ps1` (Windows PowerShell)
+- `scripts/check-display.sh` — small remote check helper to verify framebuffer and overlay state
+
+Usage examples:
+
+```bash
+# Run the installer (default installs LCD-show driver)
+./scripts/install-inland-display.sh <PI_HOST> [PI_USER]
+
+# Use the safer manual method (adds overlay + enables SPI)
+./scripts/install-inland-display.sh <PI_HOST> [PI_USER] --manual
+
+# Quick remote check
+./scripts/check-display.sh <PI_HOST> [PI_USER]
+```
+
+**Notes & safety:**
+- These scripts use SSH; ensure you can `ssh pi@<PI_HOST>` from your machine (key-based auth recommended).
+- The `LCD-show` script may reboot the Pi and can temporarily disable HDMI output. Back up important data first.
+
 ## Resources
 - [LCDWiki Documentation (MPI3501)](http://www.lcdwiki.com/3.5inch_RPi_Display)
 - [GitHub Driver Repository](https://github.com/goodtft/LCD-show)

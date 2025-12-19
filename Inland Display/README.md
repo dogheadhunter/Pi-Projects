@@ -23,3 +23,10 @@ Deploy to your Pi (note path quoting because of the space in the folder name):
 - `.gitignore` — common Python ignores
 
 When you're ready I can deploy this demo to your Pi and run it for verification.
+
+If you have an Inland 3.5" TFT connected and need the drivers installed, use the helper scripts in `scripts/`:
+
+- `scripts/install-inland-display.sh` (Linux/macOS)
+- `scripts/install-inland-display.ps1` (Windows PowerShell)
+
+These scripts will SSH to your Pi, install the recommended driver (LCD-show), and reboot the device if required. If you'd like, I can run the installer for you — provide the Pi's host and a username that can SSH in (SSH key recommended).
