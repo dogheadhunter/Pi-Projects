@@ -27,3 +27,8 @@ logs/
 # Build
 dist/
 build/
+
+# Project temporary or generated files
+scripts/*.sh
+ffmpeg/
+"Mini tv project/"
